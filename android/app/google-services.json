@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "451840493677",
+    "project_id": "rankme-view",
+    "storage_bucket": "rankme-view.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451840493677:android:d2ebbaf9b32b66b3719764",
+        "android_client_info": {
+          "package_name": "com.example.rankme_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451840493677-gjb1k7nc3iarhfg3dr5bupnfd7ftnfbh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rankme_admin",
+            "certificate_hash": "c48e802f05378ac7e1900516ea94626bd0b40d30"
+          }
+        },
+        {
+          "client_id": "451840493677-67ahbr8salntikiqgdl1h6irrbj3f8rs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJyQ8GKQQfSyd-OmpJk5TDztNWwLVgK-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451840493677-67ahbr8salntikiqgdl1h6irrbj3f8rs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

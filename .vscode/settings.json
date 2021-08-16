@@ -1,0 +1,11 @@
+{
+
+    "dart.flutterSdkPaths": ["C:/Users/lahiru/fvm/versions"],
+  // Remove .fvm files from search
+  "search.exclude": {
+    "**/.fvm": true
+  },
+
+    "git.ignoreLimitWarning": true,
+    "dart.flutterSdkPath": "C:\\Users\\lahiru\\fvm\\versions\\1.22.2"
+}
