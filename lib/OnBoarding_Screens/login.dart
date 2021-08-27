@@ -176,29 +176,29 @@ class _LoginPageState extends State<LoginPage> {
                             SizedBox(
                               height: size.height * 0.02,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                Text("Don't have an account?"),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                SignupPage()));
-                                  },
-                                  child: Text(
-                                    " Sign up",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.center,
+                            //   crossAxisAlignment: CrossAxisAlignment.end,
+                            //   children: <Widget>[
+                            //     Text("Don't have an account?"),
+                            //     GestureDetector(
+                            //       onTap: () {
+                            //         Navigator.push(
+                            //             context,
+                            //             MaterialPageRoute(
+                            //                 builder: (context) =>
+                            //                     SignupPage()));
+                            //       },
+                            //       child: Text(
+                            //         " Sign up",
+                            //         style: TextStyle(
+                            //           fontWeight: FontWeight.w600,
+                            //           fontSize: 18,
+                            //         ),
+                            //       ),
+                            //     )
+                            //   ],
+                            // ),
                             SizedBox(
                               height: size.height * 0.02,
                             ),

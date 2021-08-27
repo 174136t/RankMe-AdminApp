@@ -63,11 +63,11 @@ class WelcomePage extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              "RankMe",
+                              "RankMe-Admin",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.blue[700],
-                                fontSize: 40,
+                                fontSize: 35,
                                 fontWeight: FontWeight.bold,
                               ),
                             )
@@ -113,30 +113,30 @@ class WelcomePage extends StatelessWidget {
                         ),
                         // creating the signup button
                         SizedBox(height: 20),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignupPage()));
-                          },
-                          child: Container(
-                            width: size.width * 0.80,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                gradient: skyBlueGradient),
-                            child: Center(
-                              child: Text(
-                                "Sign up",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18),
-                              ),
-                            ),
-                          ),
-                        )
+                        // GestureDetector(
+                        //   onTap: () {
+                        //     Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => SignupPage()));
+                        //   },
+                        //   child: Container(
+                        //     width: size.width * 0.80,
+                        //     height: 60,
+                        //     decoration: BoxDecoration(
+                        //         borderRadius: BorderRadius.circular(50),
+                        //         gradient: skyBlueGradient),
+                        //     child: Center(
+                        //       child: Text(
+                        //         "Sign up",
+                        //         style: TextStyle(
+                        //             color: Colors.white,
+                        //             fontWeight: FontWeight.w600,
+                        //             fontSize: 18),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // )
                       ],
                     )
                   ],

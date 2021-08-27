@@ -20,6 +20,7 @@ class _MCQSubListState extends State<MCQSubList> {
     print("GetSUb called");
 
     var url = 'http://appadmin.rankme.lk/getDynamicSub.php';
+    // var url = 'http://rankme.lk/appadmin/get_all_papers_new.php';
     final response = await http.post(Uri.encodeFull(url), headers: {
       "Accept": "application/json"
     }, body: {
@@ -49,7 +50,7 @@ class _MCQSubListState extends State<MCQSubList> {
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
-              child: Center(
+        child: Center(
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,11 +61,14 @@ class _MCQSubListState extends State<MCQSubList> {
                   child: Text(
                     'Subject List',
                     style: TextStyle(
-                        fontSize: size.width * 0.06, fontWeight: FontWeight.w800),
+                        fontSize: size.width * 0.06,
+                        fontWeight: FontWeight.w800),
                   ),
                 ),
               ),
-              SizedBox(height: size.height*0.05,),
+              SizedBox(
+                height: size.height * 0.05,
+              ),
               FadeAnimation(
                 1.4,
                 Column(
@@ -80,15 +84,14 @@ class _MCQSubListState extends State<MCQSubList> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => MCQPaperList(
-                                              subId: list['id'],
-                                              subName: list['name']
-                                            )));
+                                            subId: list['id'],
+                                            subName: list['name'])));
                               },
                               child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    border:
-                                        Border.all(color: Colors.blue, width: 2),
+                                    border: Border.all(
+                                        color: Colors.blue, width: 2),
                                     color: Colors.blue[100]),
                                 height: size.height * 0.07,
                                 width: size.width * 0.9,

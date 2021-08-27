@@ -12,14 +12,14 @@ import 'package:rankme_admin/HomePages/drawer_container.dart';
 import 'package:rankme_admin/SubPages/notice_body.dart';
 
 class NoticePage extends StatefulWidget {
-  const NoticePage({ Key key }) : super(key: key);
+  const NoticePage({Key key}) : super(key: key);
 
   @override
   _NoticePageState createState() => _NoticePageState();
 }
 
 class _NoticePageState extends State<NoticePage> {
-    List noticeList = List();
+  List noticeList = List();
   List userData = List();
   String fName;
   String lName;
@@ -45,14 +45,16 @@ class _NoticePageState extends State<NoticePage> {
     // String phoneNo = user.phoneNumber;
     // String phoneFinal = phoneNo.replaceAll("+94", "");
 
-    var url = 'http://appadmin.rankme.lk/getNotices.php';
-
+    // var url = 'http://appadmin.rankme.lk/getNotices.php';
+    var url = 'http://rankme.lk/appadmin/get_all_notices_new.php';
     http.Response response = await http.get(url);
     response = await http.post(Uri.encodeFull(url), headers: {
       "Accept": "application/json"
-    }, body: {
-      "phoneNo": '763529962',
-    });
+    }, 
+    // body: {
+    //   "phoneNo": '763529962',
+    // }
+    );
 
     if (response.body.toString() != "Error") {
       String jsonDataString = response.body;
@@ -125,7 +127,6 @@ class _NoticePageState extends State<NoticePage> {
                       blurRadius: 6.0,
                     ),
                   ],
-               
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -140,7 +141,6 @@ class _NoticePageState extends State<NoticePage> {
                         child: SpinKitWave(
                           color: Colors.amber[800],
                           size: size.height * 0.05,
-                         
                         ),
                       );
                     },
@@ -166,7 +166,6 @@ class _NoticePageState extends State<NoticePage> {
                       blurRadius: 6.0,
                     ),
                   ],
-                
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -181,7 +180,6 @@ class _NoticePageState extends State<NoticePage> {
                         child: SpinKitWave(
                           color: Colors.amber[800],
                           size: size.height * 0.05,
-                         
                         ),
                       );
                     },
@@ -289,9 +287,7 @@ class _NoticePageState extends State<NoticePage> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-      
         key: _drawerKey,
-     
         body: loading
             ? Container(
                 color: Colors.white,
@@ -450,7 +446,7 @@ class _NoticePageState extends State<NoticePage> {
                                       // height: size.height,
                                       color: Colors.white,
                                       child: ListView(
-                                        children: noticeList
+                                        children: noticeList.reversed
                                             .map((list) => Padding(
                                                   padding:
                                                       const EdgeInsets.all(8.0),
@@ -484,12 +480,10 @@ class _NoticePageState extends State<NoticePage> {
                                                                           new BoxDecoration(
                                                                         borderRadius:
                                                                             BorderRadius.circular(15),
-                                                                       
                                                                         color: Colors
                                                                             .white,
                                                                       ),
                                                                       child:
-                                                                     
                                                                           ClipRRect(
                                                                         borderRadius:
                                                                             BorderRadius.all(Radius.circular(15)),
@@ -497,10 +491,10 @@ class _NoticePageState extends State<NoticePage> {
                                                                             CachedNetworkImage(
                                                                           imageUrl:
                                                                               list['image'],
-                                                                          imageBuilder:
-                                                                              (context, imageProvider1) =>
-                                                                                  Container(
-                                                                            decoration: BoxDecoration(
+                                                                          imageBuilder: (context, imageProvider1) =>
+                                                                              Container(
+                                                                            decoration:
+                                                                                BoxDecoration(
                                                                               image: DecorationImage(
                                                                                 image: imageProvider1,
                                                                                 fit: BoxFit.fill,
@@ -555,7 +549,6 @@ class _NoticePageState extends State<NoticePage> {
                                                                       MainAxisAlignment
                                                                           .center,
                                                                   children: [
-                                                                 
                                                                     new Text(
                                                                       list[
                                                                           'title'],
@@ -567,14 +560,16 @@ class _NoticePageState extends State<NoticePage> {
                                                                               .w500,
                                                                           color:
                                                                               Colors.black),
-                                                                              overflow: TextOverflow.ellipsis,maxLines: 3,
+                                                                      overflow:
+                                                                          TextOverflow
+                                                                              .ellipsis,
+                                                                      maxLines:
+                                                                          3,
                                                                     ),
                                                                   ],
                                                                 ),
-                                                               
                                                               ),
                                                             ),
-                                                           
                                                           ],
                                                         ),
                                                       ),

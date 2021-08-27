@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:rankme_admin/Animation/fade_animation.dart';
 
 class MCQPaperList extends StatefulWidget {
   final String subId;
@@ -23,7 +24,7 @@ class _MCQPaperListState extends State<MCQPaperList> {
 
     String subject = subId;
 
-    var url = 'http://appadmin.rankme.lk/getSubMcq.php';
+    var url = 'http://rankme.lk/appadmin/get_all_papers_new.php';
     final response = await http.post(Uri.encodeFull(url), headers: {
       "Accept": "application/json"
     }, body: {
@@ -65,12 +66,85 @@ class _MCQPaperListState extends State<MCQPaperList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Center(child: Text(mcqDetails[0]['instructions']))],
+    Size size = MediaQuery.of(context).size;
+    return SafeArea(
+          child: Scaffold(
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                 Center(
+                child: Container(
+                  margin: EdgeInsets.only(top: 5),
+                  child: Text(
+                    'Paper List',
+                    style: TextStyle(
+                        fontSize: size.width * 0.06,
+                        fontWeight: FontWeight.w800),
+                  ),
+                ),
+              ),
+                FadeAnimation(
+                    1.4,
+                    Column(
+                      children: mcqDetails.reversed
+                          .map((list) => Padding(
+                                padding: const EdgeInsets.only(top: 8.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    // String subjectId = list['id'];
+                                    // String user =
+                                    //     list['user_data_id'];
+                                    // Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) => MCQPaperList(
+                                    //             subId: list['id'],
+                                    //             subName: list['name'])));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                            color: Colors.blue, width: 2),
+                                        color: list['status']== '1'?Colors.blue[100]:Colors.amber[100]),
+                                    height: size.height * 0.07,
+                                    width: size.width * 0.9,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Icon(
+                                          Icons.library_books_outlined,
+                                          size: size.width * 0.06,
+                                          color: Colors.blue[700],
+                                        ),
+                                        Container(
+                                          width: size.width * 0.7,
+                                          child: Text(
+                                            list['name'],
+                                            style: TextStyle(
+                                                fontSize: size.width * 0.04,
+                                                color: Colors.blue[700],
+                                                fontWeight: FontWeight.w900),
+                                          ),
+                                        ),
+                                        Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: size.width * 0.06,
+                                          color: Colors.blue[700],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ))
+                          .toList(),
+                    ),)],
+            ),
+          ),
         ),
       ),
     );
