@@ -8,6 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:rankme_admin/HomePages/home.dart';
+import 'package:rankme_admin/SubPages/mcq_paper_list.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class MCQView2 extends StatefulWidget {
@@ -19,6 +20,9 @@ class MCQView2 extends StatefulWidget {
   final Map ansList;
   final String mcqId;
   final String subId;
+  final String subName;
+  final String papername;
+  final String stramId;
 
   const MCQView2(
       {Key key,
@@ -29,7 +33,10 @@ class MCQView2 extends StatefulWidget {
       this.tot,
       this.ansList,
       this.mcqId,
-      this.subId})
+      this.subId,
+      this.subName,
+      this.papername,
+      this.stramId})
       : super(key: key);
 
   @override
@@ -247,6 +254,9 @@ class _MCQView2State extends State<MCQView2> {
                     ansList: finQAndAList,
                     mcqId: widget.mcqId,
                     subId: widget.subId,
+                    subName: widget.subName,
+                    stramId: widget.stramId,
+                     papername: widget.papername,
                     // time: timeLeft,
                     // iniTime: widget.iniTime,
                     // setEnd: widget.setEnd,
@@ -274,6 +284,9 @@ class _MCQView2State extends State<MCQView2> {
                     ansList: finQAndAList,
                     mcqId: widget.mcqId,
                     subId: widget.subId,
+                    subName: widget.subName,
+                    stramId: widget.stramId,
+                    papername: widget.papername,
                     // time: timeLeft,
                     // iniTime: widget.iniTime,
                     // setEnd: widget.setEnd,
@@ -430,7 +443,10 @@ class _MCQView2State extends State<MCQView2> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('No time Limit.Enjoy!!!',style: TextStyle(fontWeight: FontWeight.bold),),
+                          Text(
+                            '${widget.papername}',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           // Icon(
                           //   Icons.timer,
                           //   color: Colors.blue[600],
@@ -542,7 +558,11 @@ class _MCQView2State extends State<MCQView2> {
                                         left: 8.0, right: 8, bottom: 8),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: widget.quesList[pgNo]['answer'] != '1'?Colors.white:Colors.green,
+                                        color: widget.quesList[pgNo]
+                                                    ['answer'] !=
+                                                '1'
+                                            ? Colors.white
+                                            : Colors.green,
                                         borderRadius: BorderRadius.circular(15),
                                         boxShadow: [
                                           BoxShadow(
@@ -558,7 +578,11 @@ class _MCQView2State extends State<MCQView2> {
                                               ['ans_one'],
                                           style: {
                                             "body": Style(
-                                              color: widget.quesList[pgNo]['answer'] == '1'?Colors.white:Colors.black,
+                                              color: widget.quesList[pgNo]
+                                                          ['answer'] ==
+                                                      '1'
+                                                  ? Colors.white
+                                                  : Colors.black,
                                               fontSize: FontSize.medium,
                                               textAlign: TextAlign.justify,
                                             ),
@@ -669,7 +693,11 @@ class _MCQView2State extends State<MCQView2> {
                                         left: 8.0, right: 8, bottom: 8),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: widget.quesList[pgNo]['answer'] != '2'?Colors.white:Colors.green,
+                                        color: widget.quesList[pgNo]
+                                                    ['answer'] !=
+                                                '2'
+                                            ? Colors.white
+                                            : Colors.green,
                                         borderRadius: BorderRadius.circular(15),
                                         // border:
                                         //     Border.all(color: Colors.black),
@@ -687,7 +715,11 @@ class _MCQView2State extends State<MCQView2> {
                                               ['ans_two'],
                                           style: {
                                             "body": Style(
-                                              color: widget.quesList[pgNo]['answer'] == '2'?Colors.white:Colors.black,
+                                              color: widget.quesList[pgNo]
+                                                          ['answer'] ==
+                                                      '2'
+                                                  ? Colors.white
+                                                  : Colors.black,
                                               fontSize: FontSize.medium,
                                               textAlign: TextAlign.justify,
                                             ),
@@ -792,7 +824,11 @@ class _MCQView2State extends State<MCQView2> {
                                         left: 8.0, right: 8, bottom: 8),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: widget.quesList[pgNo]['answer'] != '3'?Colors.white:Colors.green,
+                                        color: widget.quesList[pgNo]
+                                                    ['answer'] !=
+                                                '3'
+                                            ? Colors.white
+                                            : Colors.green,
                                         borderRadius: BorderRadius.circular(15),
                                         boxShadow: [
                                           BoxShadow(
@@ -808,7 +844,11 @@ class _MCQView2State extends State<MCQView2> {
                                               ['ans_three'],
                                           style: {
                                             "body": Style(
-                                              color: widget.quesList[pgNo]['answer'] == '3'?Colors.white:Colors.black,
+                                              color: widget.quesList[pgNo]
+                                                          ['answer'] ==
+                                                      '3'
+                                                  ? Colors.white
+                                                  : Colors.black,
                                               fontSize: FontSize.medium,
                                               textAlign: TextAlign.justify,
                                             ),
@@ -911,7 +951,11 @@ class _MCQView2State extends State<MCQView2> {
                                         left: 8.0, right: 8, bottom: 8),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: widget.quesList[pgNo]['answer'] != '4'?Colors.white:Colors.green,
+                                        color: widget.quesList[pgNo]
+                                                    ['answer'] !=
+                                                '4'
+                                            ? Colors.white
+                                            : Colors.green,
                                         borderRadius: BorderRadius.circular(15),
                                         boxShadow: [
                                           BoxShadow(
@@ -927,7 +971,11 @@ class _MCQView2State extends State<MCQView2> {
                                               ['ans_four'],
                                           style: {
                                             "body": Style(
-                                              color: widget.quesList[pgNo]['answer'] == '4'?Colors.white:Colors.black,
+                                              color: widget.quesList[pgNo]
+                                                          ['answer'] ==
+                                                      '4'
+                                                  ? Colors.white
+                                                  : Colors.black,
                                               fontSize: FontSize.medium,
                                               textAlign: TextAlign.justify,
                                             ),
@@ -1031,7 +1079,11 @@ class _MCQView2State extends State<MCQView2> {
                                               left: 8.0, right: 8, bottom: 8),
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              color: widget.quesList[pgNo]['answer'] != '5'?Colors.white:Colors.green,
+                                              color: widget.quesList[pgNo]
+                                                          ['answer'] !=
+                                                      '5'
+                                                  ? Colors.white
+                                                  : Colors.green,
                                               borderRadius:
                                                   BorderRadius.circular(15),
                                               // border: Border.all(
@@ -1050,7 +1102,11 @@ class _MCQView2State extends State<MCQView2> {
                                                     ['ans_five'],
                                                 style: {
                                                   "body": Style(
-                                                    color: widget.quesList[pgNo]['answer'] == '5'?Colors.white:Colors.black,
+                                                    color: widget.quesList[pgNo]
+                                                                ['answer'] ==
+                                                            '5'
+                                                        ? Colors.white
+                                                        : Colors.black,
                                                     fontSize: FontSize.medium,
                                                     textAlign:
                                                         TextAlign.justify,
@@ -1347,7 +1403,7 @@ class _MCQView2State extends State<MCQView2> {
                                 height: size.height * 0.15,
                                 width: size.width * 0.95,
                               )
-                            :  Container(
+                            : Container(
                                 decoration: new BoxDecoration(
                                   // image: DecorationImage(
                                   //   image: NetworkImage(addPath),
@@ -1358,17 +1414,17 @@ class _MCQView2State extends State<MCQView2> {
                                 height: size.height * 0.15,
                                 width: size.width * 0.95,
                               ))
-                        :  Container(
-                                decoration: new BoxDecoration(
-                                  // image: DecorationImage(
-                                  //   image: NetworkImage(addPath),
-                                  //   fit: BoxFit.fill,
-                                  // ),
-                                  color: Colors.blue,
-                                ),
-                                height: size.height * 0.15,
-                                width: size.width * 0.95,
-                              ),
+                        : Container(
+                            decoration: new BoxDecoration(
+                              // image: DecorationImage(
+                              //   image: NetworkImage(addPath),
+                              //   fit: BoxFit.fill,
+                              // ),
+                              color: Colors.blue,
+                            ),
+                            height: size.height * 0.15,
+                            width: size.width * 0.95,
+                          ),
                     SizedBox(
                       height: size.height * 0.01,
                     ),
@@ -1396,8 +1452,14 @@ class _MCQView2State extends State<MCQView2> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MCQPaperList(
+                                    subId: widget.subId,
+                                    subName: widget.subName,
+                                    streamId: widget.stramId,
+                                  )));
                     },
                     child: Container(
                       height: size.height * 0.055,

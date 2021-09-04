@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:rankme_admin/Animation/fade_animation.dart';
 import 'package:rankme_admin/SubPages/essay_body.dart';
+import 'package:rankme_admin/SubPages/mcq_sub_list.dart';
 
 class EssayPaperList extends StatefulWidget {
   final String subId;
@@ -67,128 +68,128 @@ class _EssayPaperListState extends State<EssayPaperList> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Center(
-            child: Stack(
-              children: [
-                Image.asset(
-                  "assets/Guest_Screen.png",
-                  height: size.height,
-                  width: size.width,
-                  fit: BoxFit.fill,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Text(
-                          'Question List',
-                          style: TextStyle(
-                              fontSize: size.width * 0.06,
-                              fontWeight: FontWeight.w800),
-                        ),
-                      ),
-                    ),
-                    mcqDetails.length == 0
-                        ? Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Center(
-                                  child: Text("No Questions"),
-                                ),
-                              ],
-                            ),
-                          )
-                        : FadeAnimation(
-                            1.4,
-                            Column(
-                              children: mcqDetails.reversed
-                                  .map((list) => Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 8.0),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            // String subjectId = list['id'];
-
-                                            // String user =
-
-                                            //     list['user_data_id'];
-
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        EssayBody(
-                                                            qText: list['text'],
-                                                            qImage:
-                                                                list['image'],
-                                                            answer:
-                                                                list['answer'],
-                                                            answerImage: list[
-                                                                'answer_image'],
-                                                            qNo: list['no']
-                                                                .toString())));
-                                          },
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors.green,
-                                                    width: 2),
-                                                color: list['status'] == '1'
-                                                    ? Colors.green[100]
-                                                    : Colors.amber[100]),
-                                            height: size.height * 0.07,
-                                            width: size.width * 0.9,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                Icon(
-                                                  Icons.library_books_outlined,
-                                                  size: size.width * 0.06,
-                                                  color: Colors.green[700],
-                                                ),
-                                                Container(
-                                                  width: size.width * 0.7,
-                                                  child: Text(
-                                                    "Question No " + list['no'],
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            size.width * 0.04,
-                                                        color:
-                                                            Colors.green[700],
-                                                        fontWeight:
-                                                            FontWeight.w900),
-                                                  ),
-                                                ),
-                                                Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  size: size.width * 0.06,
-                                                  color: Colors.green[700],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ))
-                                  .toList(),
-                            ),
-                          )
-                  ],
-                ),
-              ],
+        child: Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+        child: Stack(
+    children: [
+      Image.asset(
+        "assets/Guest_Screen.png",
+        height: size.height,
+        width: size.width,
+        fit: BoxFit.fill,
+      ),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Text(
+                'Question List',
+                style: TextStyle(
+                    fontSize: size.width * 0.06,
+                    fontWeight: FontWeight.w800),
+              ),
             ),
           ),
+          mcqDetails.length == 0
+              ? Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Text("No Questions"),
+                      ),
+                    ],
+                  ),
+                )
+              : FadeAnimation(
+                  1.4,
+                  Column(
+                    children: mcqDetails.reversed
+                        .map((list) => Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 8.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  // String subjectId = list['id'];
+
+                                  // String user =
+
+                                  //     list['user_data_id'];
+
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              EssayBody(
+                                                  qText: list['text'],
+                                                  qImage:
+                                                      list['image'],
+                                                  answer:
+                                                      list['answer'],
+                                                  answerImage: list[
+                                                      'answer_image'],
+                                                  qNo: list['no']
+                                                      .toString())));
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(10),
+                                      border: Border.all(
+                                          color: Colors.green,
+                                          width: 2),
+                                      color: list['status'] == '1'
+                                          ? Colors.green[100]
+                                          : Colors.amber[100]),
+                                  height: size.height * 0.07,
+                                  width: size.width * 0.9,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Icon(
+                                        Icons.library_books_outlined,
+                                        size: size.width * 0.06,
+                                        color: Colors.green[700],
+                                      ),
+                                      Container(
+                                        width: size.width * 0.7,
+                                        child: Text(
+                                          "Question No " + list['no'],
+                                          style: TextStyle(
+                                              fontSize:
+                                                  size.width * 0.04,
+                                              color:
+                                                  Colors.green[700],
+                                              fontWeight:
+                                                  FontWeight.w900),
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: size.width * 0.06,
+                                        color: Colors.green[700],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                )
+        ],
+      ),
+    ],
+        ),
         ),
       ),
-    );
+    ),
+      );
   }
 }

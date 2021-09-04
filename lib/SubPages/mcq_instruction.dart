@@ -13,6 +13,7 @@ class MCQInstruction extends StatefulWidget {
   final String mqPaperInst;
   final String subname;
   final String subid;
+  final String streamId;
   const MCQInstruction(
       {Key key,
       this.mqPaperId,
@@ -21,7 +22,7 @@ class MCQInstruction extends StatefulWidget {
       this.mqPaperTime,
       this.mqPaperInst,
       this.subname,
-      this.subid})
+      this.subid, this.streamId})
       : super(key: key);
 
   @override
@@ -35,8 +36,8 @@ class _MCQInstructionState extends State<MCQInstruction> {
   String mcqPaperTime;
   String mcqPaperInst;
   List pmcqQuestions = List();
-int pTime, pPage=0, pCor, psetEnd, transTime;
-List mcqQuestions = List();
+  int pTime, pPage = 0, pCor, psetEnd, transTime;
+  List mcqQuestions = List();
   List mcqQueAns = List();
   List mapList = List();
   List addsData = List();
@@ -132,7 +133,8 @@ List mcqQuestions = List();
 
     }
   }
-   validateAns(ans) {
+
+  validateAns(ans) {
     setState(() {
       isClosed = false;
     });
@@ -178,6 +180,9 @@ List mcqQuestions = List();
                     ansList: qAndAList,
                     mcqId: widget.mqPaperId,
                     subId: widget.subid,
+                    subName: widget.subname,
+                    papername: widget.mqPaperName,
+                    stramId: widget.streamId,
                     // time: timeLeft,
                     // iniTime: strtEndT,
                     // setEnd: pprTime,
@@ -207,6 +212,9 @@ List mcqQuestions = List();
                     ansList: qAndAList,
                     mcqId: widget.mqPaperId,
                     subId: widget.subid,
+                    subName: widget.subname,
+                    papername: widget.mqPaperName,
+                     stramId: widget.streamId,
                     // time: timeLeft,
                     // iniTime: strtEndT,
                     // setEnd: pprTime,
@@ -225,7 +233,7 @@ List mcqQuestions = List();
   void initState() {
     super.initState();
     getMcqQues(widget.mqPaperId);
-     pageNo = 0;
+    pageNo = 0;
     setState(() {
       mcqPaperId = widget.mqPaperId;
       mcqPaperName = widget.mqPaperName;
@@ -370,8 +378,7 @@ List mcqQuestions = List();
                         //                               //     psetEnd.toString(),
                         //                               // mapped: map,
                         //                               )));
-                          validateAns(selectedFinal);
-
+                        validateAns(selectedFinal);
                       },
                       child: Text('View',
                           style: TextStyle(
